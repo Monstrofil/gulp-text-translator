@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "gulp": "3.8.7",
-    "mocha": "~1.17.0",
+    "mocha": "~1.17.0"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec --timeout 100"
