@@ -8,7 +8,7 @@ var Translator = require("./lib/translator.js");
 var File = require('vinyl');
 
 // consts
-const PLUGIN_NAME = 'gulp-translator';
+const PLUGIN_NAME = 'gulp-text-translator';
 
 function parsePath(path) {
   var extname = Path.extname(path);
