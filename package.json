@@ -6,7 +6,7 @@
   "licence": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/raphaelluchini/gulp-translator"
+    "url": "git://github.com/raphaelluchini/gulp-text-translator"
   },
   "keywords": [
     "gulpplugin",
