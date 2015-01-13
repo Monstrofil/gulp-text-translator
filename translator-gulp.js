@@ -2,7 +2,7 @@ var through = require('through2');
 var gutil = require('gulp-util');
 var glob = require("glob");
 var PluginError = gutil.PluginError;
-var Q = require('q');
+var Q = require('bluebird');
 var Path = require('path');
 var Translator = require("./lib/translator.js");
 var File = require('vinyl');
@@ -43,7 +43,7 @@ var plugin = function (localePath, options) {
       stream.emit('error', new PluginError(PLUGIN_NAME, 'Streaming not supported'));
       return cb();
     }
-
+    var s = stream;
     var parsedPath = parsePath(file.relative);
     var p = Path.join(parsedPath.dirname, parsedPath.basename + parsedPath.extname);
 
@@ -52,7 +52,7 @@ var plugin = function (localePath, options) {
       promises.push(translator.translate(String(file.contents)));
     });
 
-    Q.all(promises).then(function(item){
+    Q.all(promises).bind(this).then(function(item){
       item.forEach(function(obj){
         var path = file.path;
 
@@ -72,8 +72,8 @@ var plugin = function (localePath, options) {
         }));
       });
       cb();
-    }, function(error){
-      stream.emit('error', new PluginError(PLUGIN_NAME, (error||'') + " and is used in " + file.path));
+    },function(error){
+      this.emit('error', new PluginError(PLUGIN_NAME, (error||'') + " and is used in " + file.path));
       return cb();
     });
   });

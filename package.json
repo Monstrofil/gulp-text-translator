@@ -1,7 +1,7 @@
 {
   "name": "gulp-text-translator",
   "main": "translator-gulp.js",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Translate your files by using {{ syntax }} and locales/something.yml files.",
   "licence": "MIT",
   "repository": {
@@ -23,12 +23,12 @@
     "Raphael Luchini <laster.raphael@gmail.com> (https://github.com/raphaelluchini)"
   ],
   "dependencies": {
+    "bluebird": "^2.6.4",
     "glob": "^4.3.1",
     "gulp-util": "3.0.0",
-    "q": "1.0.1",
     "through2": "0.6.1",
-    "yamljs": "^0.2.1",
-    "vinyl": "~0.2.3"
+    "vinyl": "~0.2.3",
+    "yamljs": "^0.2.1"
   },
   "devDependencies": {
     "gulp": "3.8.7",
