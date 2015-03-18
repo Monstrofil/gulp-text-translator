@@ -8,7 +8,7 @@ var gulpTranslator = require('../translator-gulp.js');
 describe('gulp-translator', function() {
   describe('with null contents', function() {
     it('should let null files pass through', function(done) {
-      var translator = gulpTranslator('./test/locales/en.yml');
+      var translator = gulpTranslator('./test/locales/en.yml',{root:'en'});
       var n = 0;
 
       var _transform = function(file, enc, callback) {

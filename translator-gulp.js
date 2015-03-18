@@ -26,7 +26,8 @@ var plugin = function (localePath, options) {
   var translators = [];
   translations.forEach(function(item){
     translators.push(new Translator({
-      localePath: item
+      localePath: item,
+      localeName: Path.basename(item, Path.extname(item)),
     }));
   });
 
